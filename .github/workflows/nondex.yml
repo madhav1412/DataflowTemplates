@@ -26,7 +26,7 @@ jobs:
         cache: maven
     - name: Build Module
       run: mvn clean install -DskipTests -pl v1 -am
-    - name: Run the testcase
+    - name: Run the testcase without NonDex
       run: mvn -pl v1 test -Dtest=com.google.cloud.teleport.bigtable.CassandraRowMapperFnTest#testListColumn
     - name: Run NonDex on the test case
       run: mvn -pl v1 edu.illinois:nondex-maven-plugin:2.1.1:nondex -Dtest=com.google.cloud.teleport.bigtable.CassandraRowMapperFnTest#testListColumn      
